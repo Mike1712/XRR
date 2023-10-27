@@ -1,0 +1,41 @@
+from setuptools import setup
+setup(
+  name='XRR',
+  version='0.1.0',
+  author='Mike Moron',
+  author_email='mike.moron@tu-dortmund.de',
+  package_dir = {
+  "": "src",  
+  },
+  packages=['XRR', 'XRR.tests', 'XRR.utilities'], 
+  # packages=['plot_layout', 'read_data', 'simulation', 'tests'],
+  # scripts=['tests/EffectiveDensitySlicing.py',]
+  # url='http://pypi.python.org/pypi/PackageName/',
+  # license='LICENSE.txt',
+  description='Read and evaluate XRR data.',
+  long_description=open('README.txt').read(),
+  install_requires=[
+     "numpy >= 1.22.4",
+     "scipy >= 1.8.1",
+     "pandas >= 1.4.2",
+     "Pillow >= 9.1.1",
+     "matplotlib >= 3.5.2",
+     "matplotlib-inline >= 0.1.3",
+     "plotly >= 5.8.0",
+      "IPython >= 8.4.0",
+      "ipykernel >= 6.13.0",
+      "ipywidgets >= 7.7.0",
+      "jupyter_client >= 7.4.7",
+      "jupyter_core >=  5.0.0",
+      "jupyter_server >= 1.23.3",
+      "jupyterlab >= 3.5.0",
+      "nbclient >= 0.5.13",
+      "nbconvert >= 7.2.5",
+      "nbformat >= 5.4.0",
+      "notebook >= 6.4.11",
+      "qtconsole >= 5.3.0",
+      "traitlets >= 5.2.2",
+      "PySimpleGUI >= 4.60.4",
+      "PyPDF4 >=1.27.0"
+     ],
+)

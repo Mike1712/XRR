@@ -115,6 +115,25 @@ def create_colormap(length:int, cmap:str, convert2hex = True, extendRangeWith = 
 xticks = np.arange(0,2,0.05)
 
 
+def extract_subplots_traces(figure, row, col):
+    # Stellen Sie sicher, dass es sich um eine make_subplots-Figur handelt
+    # if not isinstance(figure, plotly.subplots.make_subplots):
+    #     raise ValueError("Die Eingabe-Figur sollte mit make_subplots erstellt worden sein.")
+
+    # Überprüfen Sie, ob row und col innerhalb der zugewiesenen Subplots liegen
+    if row > figure.rows or col > figure.cols:
+        raise ValueError("Ungültige Zeilen- oder Spaltennummer.")
+
+    # Index des Subplots berechnen
+    subplot_index = (row - 1) * figure.cols + col
+
+    # Extrahieren Sie alle Traces aus dem gewünschten Subplot
+    subplot_traces = [trace for trace in figure.data if trace.xaxis == 'x{}'.format(subplot_index) and trace.yaxis == 'y{}'.format(subplot_index)]
+    subplot_layout = figure.layout
+
+    return subplot_traces, subplot_layout
+
+
 
 class plotly_layouts:
 

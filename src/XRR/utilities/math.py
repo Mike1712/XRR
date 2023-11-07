@@ -478,7 +478,7 @@ def intersect_two_lines(first_mins, xvals, first_part_start_ind, first_part_end_
                      )
 
     # vertical line at T_d
-    fig_fm.add_shape(type = 'line', xref = 'x1', yref = 'y1', x0 = x_intersect, x1 = x_intersect, y0 = min(first_mins)-.1e-1, y1 = y_intersect, line = dict(width = 3, dash = 'dash', color = 'black'))
+    fig_fm.add_shape(type = 'line', xref = 'x1', yref = 'y1', x0 = x_intersect, x1 = x_intersect, y0 = min(first_mins)-.1, y1 = y_intersect, line = dict(width = 3, dash = 'dash', color = 'black'))
     # fig_fm.add_annotation(xref = 'x2', yref = 'y2',x = 85, y = 0.17, text = f'<i>T</i><sub>d</sub>&#8201;=&#8201;({x_intersect:.2f}&#8201;&#177;&#8201;{x_intersect_err:.2f})&#8201;°C',
     #                        showarrow = False, font = dict(size = 24, color = 'black', family = 'Latin Modern Roman'))
 

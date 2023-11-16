@@ -191,14 +191,14 @@ class plotly_layouts:
 	        	font = dict(size = self.titleFS_x, color = 'black', family = self.FontFamily)
 	        	),
 	        type='linear', visible=True, linecolor='black', showgrid=self.showgrid, automargin=True, gridwidth=1, gridcolor='lightgrey', tickmode='auto',
-	        zeroline=True, showline=True, ticks='inside', showticklabels=True,
+	        zeroline=False, showline=True, ticks='inside', showticklabels=True,
 	        nticks = 10, tickfont = dict(size=self.tickFS, color = self.FontColors), ticklen = self.ticklen, tickwidth = self.tickwidth,
 	        mirror = 'all',)
 		self.standard_log_axis = dict(
 	        title = dict(text = None, standoff= 0,
 	        	font = dict(size=self.titleFS_y, color = self.FontColors, family = self.FontFamily)
 	        	),
-	        type='log', exponentformat='power', showexponent='first', visible=True, linecolor='black', zeroline=True, showline=True, showgrid=self.showgrid, gridwidth=1,
+	        type='log', exponentformat='power', showexponent='first', visible=True, linecolor='black', zeroline=False, showline=True, showgrid=self.showgrid, gridwidth=1,
 		        gridcolor='lightgrey', ticks = 'inside', nticks = 8,tickfont = dict(size=self.tickFS, color = self.FontColors), ticklen = self.ticklen, tickwidth = self.tickwidth,
 		        minor =  dict(ticks='inside', ticklen=self.ticklen -2, tickwidth = self.tickwidth -2, tickmode = 'auto', nticks = 10),
 		        mirror = 'all',

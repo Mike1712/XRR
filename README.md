@@ -11,9 +11,9 @@ This code is developed and tested on Fedora Linux.
 `pip install ./setup.py`
 ## Exemplary workflow with example data
 There are a few jupyter notebooks to show how the scripts works:<br>
-$\quad$ [Read raw data](src/XRR/notebooks/read_data.ipynb).<br>
-$\quad$ [Simulation of layer stacks](src/XRR/notebooks/read_data.ipynb).<br>
-$\quad$ [Plotting of evaluated data](src/XRR/notebooks/read_data.ipynb).<br>
+$\quad$ [Read raw data](src/XRR/notebooks/read_data.ipynb)<br>
+$\quad$ [Simulation of layer stacks](src/XRR/notebooks/read_data.ipynb)<br>
+$\quad$ [Plotting of evaluated data](src/XRR/notebooks/read_data.ipynb)<br>
 
 
 

@@ -10,10 +10,10 @@ This code is developed and tested on Fedora Linux.
 `cd XRR`<br>
 `pip install ./setup.py`
 ## Exemplary workflow with example data
-There are a few jupyter notebooks to show how the scripts works:<br>
-$\quad$ [Read raw data](src/XRR/notebooks/read_data.ipynb)<br>
-$\quad$ [Simulation of layer stacks](src/XRR/notebooks/read_data.ipynb)<br>
-$\quad$ [Plotting of evaluated data](src/XRR/notebooks/read_data.ipynb)<br>
+There are a few [jupyter notebooks](src/XRR/notebooks) to show how the scripts work:<br>
+$\quad$ 1. Read raw data: read_data.ipynb<br>
+$\quad$ 2. Simulation of layer stacks: layer_stacks.ipynb<br>
+$\quad$ 3. Evaluating and plotting experimental data: data_eval.ipynb<br>
 
 
 

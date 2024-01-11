@@ -10,6 +10,6 @@ This code is developed and tested on Fedora Linux.
 `cd XRR`<br>
 `pip install ./setup.py`
 ## Exemplary workflow with example data
-See example [jupyter notebooks] (https://github.com/Mike1712/XRR/src/XRR/notebooks)
+See example [jupyter notebooks](https://github.com/Mike1712/XRR/src/XRR/notebooks)
 
 

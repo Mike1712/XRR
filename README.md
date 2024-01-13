@@ -5,6 +5,7 @@ This code is developed and tested on Fedora Linux.
 ## Requirements
 
 ## Installation
+<b>Consider installation to a virtual environment (pip, conda), since the package uses specific version numbers of several packages.</b>
 ### Linux
 `git clone https://github.com/Mike1712/XRR.git`<br>
 `cd XRR`<br>

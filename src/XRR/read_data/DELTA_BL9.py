@@ -10,7 +10,7 @@ from XRR.utilities.conversion_methods import kev2angst, th2q, q2th, inch2cm, cm2
 from XRR.helpers import scan_numbers_arr, new_listdir
 from XRR.utilities.file_operations import read_lines_file
 from XRR.plotly_layouts import plotly_layouts, create_colormap
-layout = plotly_layouts(transpPlot = False, transpPaper = False, unit_mode = 'bracket', locale_settings='de_DE.utf8')
+layout = plotly_layouts(transpPlot = False, transpPaper = False, unit_mode = 'slash', locale_settings='EN')
 
 from shutil import move as smove, copy as scopy, copyfileobj as scopy_obj
 from pathlib import Path
@@ -751,8 +751,8 @@ class einlesenDELTA:
                     )
                 # fig.update_xaxes(range = [roi[0]-margin, roi[1]+margin])
                 # fig.update_yaxes(range = [roi[2]-margin, roi[3]+margin], autorange = False)
-                fig.update_xaxes(range = [roi[0]-margin, roi[1]+margin])
-                fig.update_yaxes(range = [roi[2]-margin, roi[3]+margin], autorange = False)
+                # fig.update_xaxes(range = [roi[0]-margin, roi[1]+margin])
+                # fig.update_yaxes(range = [roi[2]-margin, roi[3]+margin], autorange = False)
                 title_text = f'Detector image of scan: {scan_number}<br>\u03B8 = {df.theta.loc[th_ind]:.3f}&#8201;°; <i>q</i><sub>z</sub> = {th2q(self.wavelength, df.theta.loc[th_ind]):.3f}&#8201;\u212B '
                 # roi_rect = go.layout.Shape(type = 'rect', x0 = roi[0], x1 = roi[1], y0 = roi[2], y1 = roi[3], line = dict(width = 3, color = 'green'))
                 # bgl_rect = go.layout.Shape(type = 'rect', x0 = bg_left[0], x1 = bg_left[1], y0 = bg_left[2], y1 = bg_left[3], line = dict(width = 3, color = 'red'))
@@ -773,7 +773,7 @@ class einlesenDELTA:
                     labels = dict(x ='<i>x</i>&#8201;[px]',y = '<i>y</i>&#8201;[px]'),
                     width = 800, height = 566, aspect = 'auto',
                     origin = 'lower',)
-                fig.update_xaxes(range = [roi[2]-margin, roi[3]+margin])
+                fig.update_xaxes(range = [roi[2]-margin, roi[3]+margin], autorange=False)
                 fig.update_yaxes(range = [roi[0]-margin, roi[1]+margin], autorange = False)
                 fig.add_shape(roi_rect)
                 fig.add_shape (bgl_rect)

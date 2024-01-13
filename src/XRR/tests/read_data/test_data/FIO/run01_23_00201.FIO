@@ -1,0 +1,138 @@
+!
+! Comments 
+%c 
+  filename  = run01_23_00201 
+  date      = 17-Jan-2023 time     = 11:26:29 
+  scan mot  = MOT62;  TH 
+  2nd mot   = MOT61;  TT 
+!
+! Parameter 
+%p 
+ SAMPLE_TIME = 40 
+ MEAN_I0MONI = 595369.8 
+ MEAN_IABSMONI = 0 
+ MEAN_TEMP = 216.5817 
+ MEAN_TEMP_PROBE = 0 
+ MEAN_I_DELTA = -0.6109619 
+ START_POSITION = 0.9 
+ STOP_POSITION = 1.7 
+ STEPWIDTH = 0.05333334 
+ ENERGY = 27000 
+ ENERGY  =  27000 
+ABSX  =  2.549999 
+ABSY  =  -23.20035 
+S1B  =  -2.350013 
+S1T  =  -0.8500123 
+MI2TH  =  0 
+MI2Y  =  50 
+MI2PHI  =  0 
+BP1  =  70 
+BP2  =  180 
+BP3  =  230 
+MC1TH  =  8.06034 
+MC1Y  =  0 
+MC1Z  =  -103.7968 
+MC1CHI  =  -0.481 
+MC2TH  =  8.06034 
+MC2Y  =  60 
+MC2Z  =  103.7968 
+MC2PHI  =  -0.527 
+MC2SAG1  =  5600 
+MC2SAG2  =  5600 
+S2B  =  1.235 
+S2T  =  2.235 
+S2L  =  7.586 
+S2R  =  -10.814 
+ROWDUMMY1  =  1.1 
+GAMMA  =  0.4 
+PILX  =  -369.1933 
+PILZ  =  680.0003 
+ANALYZER  =  0 
+PILY  =  7.22545 
+ROWDUMMY2  =  -2.492045 
+MI1TH  =  30.294 
+MI1Y  =  33.21537 
+SAMX  =  70 
+MI3Y  =  10 
+MI3PHI  =  9.13 
+MI3X  =  3.7 
+MI3CHI  =  0 
+MI3Z  =  9.85 
+MI3TH  =  0.155 
+S3L  =  8.6 
+S3R  =  -9.4 
+S3B  =  -4 
+S3T  =  4 
+S4B  =  0.0006750562 
+S4T  =  0.1006751 
+S4L  =  -0.78485 
+S4R  =  -1.78485 
+S5T  =  0.75 
+S5B  =  -0.75 
+S5R  =  12.3495 
+S5L  =  -13.2993 
+S6R  =  -9.5 
+S6L  =  10 
+S6T  =  1.25 
+S6B  =  -1.25 
+DIFFY  =  0 
+DIFFX  =  -0.76 
+DIFFZ  =  -0.5 
+ALF  =  -6.705523e-10 
+TT  =  3.4 
+TH  =  1.7 
+CHI  =  0 
+PHI  =  0 
+ANATT  =  0 
+ANATH  =  0 
+SAMY1  =  0 
+SAMY2  =  2.000001 
+SAMTH  =  0 
+SAMCHI  =  0 
+SAMZ  =  6.2 
+TEST1  =  -1 
+SSY  =  4.86 
+SSX  =  0 
+SSZ  =  2.5 
+SSTH  =  0.14 
+SSCHI  =  0.5212271 
+MARZ  =  849.9998 
+MARX  =  -0.9 
+MARY  =  156.91 
+! 
+! Data 
+%d 
+ Col 1 Position [units]  FLOAT 
+ Col 2 Norm display counter [arb.units]  FLOAT 
+ Col 3 Detector [counts]  FLOAT 
+ Col 4 I0 Monitor [counts]  FLOAT 
+ Col 5 Iabs Monitor [counts]  FLOAT 
+ Col 6 Pin Diode [counts]  FLOAT 
+ Col 7 I_Delta [mA]  FLOAT 
+ Col 8 Temperature [K]  FLOAT 
+ Col 9 Temp_Probe [K]  FLOAT 
+ Col 10 Cublock [counts]  FLOAT 
+ Col 11 Amptek [counts]  FLOAT 
+ Col 12 AMPTEK1  FLOAT 
+ Col 13 AMPTEK2  FLOAT 
+ Col 14 AMPTEK3  FLOAT 
+ Col 15 Sam_Time [Seconds]  FLOAT 
+ Col 16 absorber position  FLOAT 
+ Col 17 absorber factor  FLOAT 
+ Col 18 Position_CM1 [Units]  FLOAT 
+            0.9         88196             0        606131             0         88197    -0.3417969      1222.778             0             0             0             0             0             0             0             0             1           1.8 
+      0.9533333         87696             0        601806             0         87697    -0.8886719     -179.2969             0             0             0              0              0              0             0             0             1      1.906667 
+       1.006667         87669             0        602501             0         87670    -0.4785156      131.8359             0             0             0              0              0              0             0             0             1      2.013333 
+           1.06         87674             0        593407             0         87675    -0.3417969      1210.913             0             0             0              0              0              0             0             0             1          2.12 
+       1.113333         87680             0        593127             0         87681      -1.09375     -604.4678             0             0             0              0              0              0             0             0             1      2.226667 
+       1.166667         87719             0        595374             0         87720    -0.8886719     -549.0967             0             0             0              0              0              0             0             0             1      2.333333 
+           1.22         87742             0        594434             0         87743    -0.4101562      -42.1875             0             0             0              0              0              0             0             0             1          2.44 
+       1.273333         87761             0        593771             0         87762    -0.3417969      563.5986             0             0             0              0              0              0             0             0             1      2.546667 
+       1.326667         87758             0        596275             0         87759    -0.6835938      798.9258             0             0             0              0              0              0             0             0             1      2.653334 
+           1.38         87751             0        594369             0         87752    -0.6152344       42.1875             0             0             0              0              0              0             0             0             1          2.76 
+       1.433333         87772             0        596738             0         87773    -0.8203125     -475.2686             0             0             0              0              0              0             0             0             1      2.866667 
+       1.486667         87793             0        592266             0         87794    -0.2050781      795.6299             0             0             0              0              0              0             0             0             1      2.973334 
+           1.54         87786             0        593278             0         87787     -1.025391     -634.1309             0             0             0              0              0              0             0             0             1          3.08 
+       1.593333         87805             0        594724             0         87806    -0.2734375      594.5801             0             0             0              0              0              0             0             0             1      3.186667 
+       1.646667         87792             0        587777             0         87793    -0.3417969      1046.777             0             0             0              0              0              0             0             0             1      3.293334 
+            1.7         87786             0        589939             0         87787     -1.025391     -457.4707             0             0             0              0              0              0             0             0             1      3.400001 

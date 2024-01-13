@@ -3,27 +3,27 @@ Python code to read raw XRR data recorded at beamlines ID31 (ESRF), P08 (DESY, P
 You can also simulate XRR profiles and electron density profiles by providing a layer stack of your sample system.<br>
 This code is developed and tested on Fedora Linux. 
 ## Requirements
-     "numpy >= 1.22.4",<br>
-     "scipy >= 1.8.1",<br>
-     "pandas >= 1.4.2",<br>
-     "Pillow >= 9.1.1",<br>
-     "matplotlib >= 3.5.2",<br>
-     "matplotlib-inline >= 0.1.3",<br>
-     "plotly >= 5.8.0",<br>
-      "IPython >= 8.4.0",<br>
-      "ipykernel >= 6.13.0",<br>
-      "ipywidgets >= 7.7.0",<br>
-      "jupyter_client >= 7.4.7",<br>
-      "jupyter_core >=  5.0.0",<br>
-      "jupyter_server >= 1.23.3",<br>
-      "jupyterlab >= 3.5.0",<br>
-      "nbclient >= 0.5.13",<br>
-      "nbconvert >= 7.2.5",<br>
-      "nbformat >= 5.4.0",<br>
-      "notebook >= 6.4.11",<br>
-      "qtconsole >= 5.3.0",<br>
-      "traitlets >= 5.2.2",<br>
-      "PySimpleGUI >= 4.60.4",<br>
+     "numpy >= 1.22.4",
+     "scipy >= 1.8.1",
+     "pandas >= 1.4.2",
+     "Pillow >= 9.1.1",
+     "matplotlib >= 3.5.2",
+     "matplotlib-inline >= 0.1.3",
+     "plotly >= 5.8.0",
+      "IPython >= 8.4.0",
+      "ipykernel >= 6.13.0",
+      "ipywidgets >= 7.7.0",
+      "jupyter_client >= 7.4.7",
+      "jupyter_core >=  5.0.0",
+      "jupyter_server >= 1.23.3",
+      "jupyterlab >= 3.5.0",
+      "nbclient >= 0.5.13",
+      "nbconvert >= 7.2.5",
+      "nbformat >= 5.4.0",
+      "notebook >= 6.4.11",
+      "qtconsole >= 5.3.0",
+      "traitlets >= 5.2.2",
+      "PySimpleGUI >= 4.60.4",
       "PyPDF4 >=1.27.0
 ## Installation
 <b>Consider installation to a virtual environment (pip, conda), since the package uses specific version numbers of several packages.</b>

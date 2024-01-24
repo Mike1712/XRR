@@ -13,7 +13,7 @@ setup(
   # url='http://pypi.python.org/pypi/PackageName/',
   # license='LICENSE.txt',
   description='Read and evaluate XRR data.',
-  long_description=open('README.txt').read(),
+  long_description=open('README.md').read(),
   install_requires=[
      "numpy >= 1.22.4",
      "scipy >= 1.8.1",

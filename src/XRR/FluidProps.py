@@ -6,7 +6,7 @@ from pprint import pprint
 import numpy as np
 from pandas import read_csv
 from scipy import constants
-from pymol import cmd
+# from pymol import cmd
 import pandas as pd
 import math
 r_e_angstrom = constants.physical_constants['classical electron radius'][0] * 1e10
@@ -243,45 +243,45 @@ def saveDispValues(file, molecule, wavelength, newfilename = None, add_absorptio
     
 
    
-def rgyrate(selection='(all)', quiet=1):
-    '''
-DESCRIPTION
+# def rgyrate(selection='(all)', quiet=1):
+#     '''
+# DESCRIPTION
 
-    Radius of gyration
+#     Radius of gyration
 
-USAGE
+# USAGE
 
-    rgyrate [ selection ]
-    '''
-    try:
-        from itertools import izip
-    except ImportError:
-        izip = zip
-    quiet = int(quiet)
-    model = cmd.get_model(selection).atom
-    x = [i.coord for i in model]
-    mass = [i.get_mass() for i in model]
-    xm = [(m*i,m*j,m*k) for (i,j,k),m in izip(x,mass)]
-    tmass = sum(mass)
-    rr = sum(mi*i+mj*j+mk*k for (i,j,k),(mi,mj,mk) in izip(x,xm))
-    mm = sum((sum(i)/tmass)**2 for i in izip(*xm))
-    rg = math.sqrt(rr/tmass - mm)
-    if not quiet:
-        print("Radius of gyration: %.2f" % (rg))
-    return rg
+#     rgyrate [ selection ]
+#     '''
+#     try:
+#         from itertools import izip
+#     except ImportError:
+#         izip = zip
+#     quiet = int(quiet)
+#     model = cmd.get_model(selection).atom
+#     x = [i.coord for i in model]
+#     mass = [i.get_mass() for i in model]
+#     xm = [(m*i,m*j,m*k) for (i,j,k),m in izip(x,mass)]
+#     tmass = sum(mass)
+#     rr = sum(mi*i+mj*j+mk*k for (i,j,k),(mi,mj,mk) in izip(x,xm))
+#     mm = sum((sum(i)/tmass)**2 for i in izip(*xm))
+#     rg = math.sqrt(rr/tmass - mm)
+#     if not quiet:
+#         print("Radius of gyration: %.2f" % (rg))
+#     return rg
 
-cmd.extend("rgyrate", rgyrate)
+# cmd.extend("rgyrate", rgyrate)
 
-def peng_robinson(molecule, Temp, rho, T_crit, p_crit, acentric_factor, p_unit = 'bar', T_unit = 'celsius'):
-    _, molar_mass = selectMolecule(molecule)
-    R = constants.physical_constants['molar gas constant'][0]
-    a = (0.457235*R**2*T_crit**2) / (p_crit)
-    b = (0.077796*R*T_crit) / (p_crit)
-    T_red = np.array(Temp) / T_crit
-    V_molar = molar_mass / rho
-    if acentric_factor <= 0.49:
-        alpha = (1+(0.379642 + 1.54226*acentric_factor - 0.26992*acentric_factor**2)*(1-np.sqrt(T_red)))**2
-    p = ((R*Temp) / (V_molar-b)) - ((a*alpha) / (V_molar**2 + 2*b*V_molar-b**2))
-    if p_unit == 'bar':
-        p *=1e-5
-    return p
+# def peng_robinson(molecule, Temp, rho, T_crit, p_crit, acentric_factor, p_unit = 'bar', T_unit = 'celsius'):
+#     _, molar_mass = selectMolecule(molecule)
+#     R = constants.physical_constants['molar gas constant'][0]
+#     a = (0.457235*R**2*T_crit**2) / (p_crit)
+#     b = (0.077796*R*T_crit) / (p_crit)
+#     T_red = np.array(Temp) / T_crit
+#     V_molar = molar_mass / rho
+#     if acentric_factor <= 0.49:
+#         alpha = (1+(0.379642 + 1.54226*acentric_factor - 0.26992*acentric_factor**2)*(1-np.sqrt(T_red)))**2
+#     p = ((R*Temp) / (V_molar-b)) - ((a*alpha) / (V_molar**2 + 2*b*V_molar-b**2))
+#     if p_unit == 'bar':
+#         p *=1e-5
+#     return p

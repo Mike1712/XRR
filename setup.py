@@ -22,6 +22,7 @@ setup(
      "matplotlib >= 3.5.2",
      "matplotlib-inline >= 0.1.3",
      "plotly >= 5.8.0",
+     "plotly_express >= 0.4.1",
       "IPython >= 8.4.0",
       "ipykernel >= 6.13.0",
       "ipywidgets >= 7.7.0",
@@ -36,6 +37,8 @@ setup(
       "qtconsole >= 5.3.0",
       "traitlets >= 5.2.2",
       "PySimpleGUI >= 4.60.4",
-      "PyPDF4 >=1.27.0"
+      "PyPDF4 >=1.27.0",
+      "natsort >=8.4.0",
+      "lmfit >=1.2.2"
      ],
 )

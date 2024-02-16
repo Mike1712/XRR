@@ -6,11 +6,6 @@ from plotly.subplots import make_subplots
 from matplotlib import cm
 from matplotlib.colors import ListedColormap, LinearSegmentedColormap, rgb2hex
 
-def isDivisibleBy2(num):
-    if (num % 2) == 0:
-        return True
-    else:
-        return False
 def get_decimal_places(f:float):
 	return str(f)[::-1].find('.')
 
@@ -413,13 +408,12 @@ class plotly_layouts:
 	def blank(self):
 		layout_blank = go.Layout(
 			paper_bgcolor = self.paperbgcolor, plot_bgcolor = self.plotbgcolor,
-			yaxis = dict(type ='linear', title_font_size = 20, visible = True, linecolor = 'black', automargin = True, zeroline = True, showline = True, showgrid = self.showgrid,
+			yaxis = dict(type ='linear', title_font_size = 20, visible = True,linecolor = 'black', automargin = True, zeroline = True, showline = True, showgrid = self.showgrid,
 				gridwidth = 1, gridcolor = 'lightgrey', ticks = 'outside', showticklabels = True, tick0 = 0, mirror = True),
 			xaxis = dict(visible=True, title_font_size = 20, linecolor = 'black', showgrid = self.showgrid, automargin = True, gridwidth = 1, gridcolor = 'lightgrey', zeroline = True,
 				showline = True, ticks = 'outside', showticklabels = True, mirror = True),
 			legend = dict( font_size = 16, yanchor = 'top', xanchor = 'right', y=0.99, x=0.99, borderwidth=0)
 			)
-
 		return layout_blank
 
 	def beam_current(self):
@@ -427,9 +421,13 @@ class plotly_layouts:
 			paper_bgcolor = self.paperbgcolor,
 			plot_bgcolor = self.plotbgcolor, title = '',
 			xaxis = dict( visible = True, linecolor = 'black', zeroline = True, showline = True, showgrid = self.showgrid, gridwidth = 1, gridcolor = 'lightgrey',
-				type ='category', title = 'time / s', title_font_size = 18, mirror = True),
-			yaxis = dict(visible = True, linecolor = 'black', title = 'beam current / mA', title_font_size = 18, zeroline = True, showline = True,
-				showgrid = self.showgrid, gridwidth = 1, gridcolor = 'lightgrey', mirror = True,),
+				type ='category', mirror = True, title = dict(
+					text='time / s', font_size = 18),
+				),
+			yaxis = dict(visible = True, linecolor = 'black', zeroline = True, showline = True,
+				showgrid = self.showgrid, gridwidth = 1, gridcolor = 'lightgrey', mirror = True, title = dict(
+					text = 'beam current / mA', font_size = 18),
+				),
 			legend = dict(yanchor='top', xanchor='right', y=0.99, x=0.99, borderwidth=0, font_size = 14,),
 			)
 

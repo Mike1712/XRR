@@ -330,7 +330,7 @@ def ward_wu(x, M, c, alpha, gamma):
 def GAB(x, v_m, C, K):
     v = v_m * C * K * x /((1 - K*x) * (1+(C-1)*K*x))
     return v
-def Zou_et_al(x, v_m, C, K, alpha):
+def     _et_al(x, v_m, C, K, alpha):
     v = v_m * C * K * x**alpha /((1 - K*x**alpha) * (1+(C-1)*K*x**alpha))
     return v
 

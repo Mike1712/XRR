@@ -19,7 +19,7 @@ from scipy.interpolate import interp1d
 from scipy.signal import argrelextrema, find_peaks, savgol_filter, argrelmin, peak_widths, peak_prominences
 from scipy import constants
 from scipy import integrate
-from scipy import intersect1d
+from numpy import intersect1d
 from scipy.ndimage import gaussian_filter1d
 
 from pandas import DataFrame, read_csv, read_fwf,concat as pd_concat

@@ -6,129 +6,6 @@ from plotly.subplots import make_subplots
 from matplotlib import cm
 from matplotlib.colors import ListedColormap, LinearSegmentedColormap, rgb2hex
 
-def get_decimal_places(f:float):
-	return str(f)[::-1].find('.')
-
-def format_e(n):
-    a = '%E' % n
-    return a.split('E')[0].rstrip('0').rstrip('.') + 'E' + a.split('E')[1]
-
-def make_logtick_array(x0:float, x1:float, ticksbetween = 10, every_nth_val = 1):
-	mainTicks= np.logspace(x0, x1, abs(x0) + abs(x1) +1)
-	mainTicks = mainTicks[0::every_nth_val]
-	tickvalsDummy, tickvals, realText = [], [], []
-
-	for mT in mainTicks:
-		tickvalsDummy.append(np.arange(mT, mT * ticksbetween, (mT)).tolist())
-	tickvals = sum(tickvalsDummy, [])
-	tickText = [str("{:.0e}".format(float(val))) if val in mainTicks else '' for val in tickvals]	
-	for tick in tickText:
-		if not tick == '':
-			if not '00' in tick:
-				dummy = tick.split('1e')[-1].lstrip('+ |0').replace('-0', '-')
-				realText.append('10' + '<sup>' + dummy + '</sup>')
-				# realText.append('10' + '<sup>' + y.split('1e')[-1] + '</sup>')
-			else:
-				# one = '1'
-				one = '10<sup>0</sup>'
-				realText.append(one)
-		else:
-			realText.append('')
-	return tickvals, realText
-
-def print_colors_from_plotly_figure_traces(traces, return_color_line=False):
-    for i, prof in enumerate(traces):
-        color_marker_line = prof.marker.line.color
-        color_line = prof.line.color
-        name = prof.name
-        if not return_color_line:
-        	if not color_marker_line==None and not color_line == 'black' and not color_marker_line == 'black':
-        		print(color_marker_line,name)
-        	else:
-	        	print(color_line, name)
-
-
-def _anz_elems_per_col(anz_items, cols):
-    elems_per_col = anz_items // cols
-    elems_in_last_col = anz_items // cols + anz_items % cols
-    return elems_per_col, elems_in_last_col
-
-def col_row_list2(anz_items ,cols, rows, prepend_item=True):
-    elems_per_col, elems_in_last_col = _anz_elems_per_col(anz_items, cols)
-    items = np.repeat(rows, cols)
-    lst = []
-    for ind, item in enumerate(items):
-        lst_item = np.repeat(ind + 1, item).tolist()
-        lst.append(lst_item)
-    lst = sum(lst,[])
-    if not elems_per_col == elems_in_last_col:
-        if prepend_item:
-            lst.insert(0,1)
-        else:
-            lst.append(ind + 1)
-    return lst
-
-def col_row_list(anz_items ,cols, prepend_item=True):
-	elems_per_col, elems_in_last_col = _anz_elems_per_col(anz_items, cols)
-	rows = anz_items / cols
-	items = np.repeat(elems_per_col, cols)
-	lst = []
-	for ind, item in enumerate(items):
-	    lst_item = np.repeat(ind + 1, item).tolist()
-	    lst.append(lst_item)
-	lst = sum(lst,[])
-	if not elems_per_col == elems_in_last_col:
-	    if prepend_item:
-	    	to_prepend = np.repeat(1, elems_in_last_col - elems_per_col).tolist()
-	    	if len(to_prepend) > 1:
-	    		lst = [*to_prepend, *lst]
-	    	else:
-	    		lst.insert(0,*to_prepend)
-	    else:
-	    	to_append = np.repeat(ind + 1, elems_in_last_col - elems_per_col).tolist()
-	    	if len(to_append) > 1:
-	    		lst.extend(to_append)
-	    	else:
-	    		lst.append(ind + 1)
-	return lst
-
-def create_colormap(length:int, cmap:str, convert2hex = True, extendRangeWith = 0):
-	all_maps = list(cm._colormaps._cmaps.keys())
-	if not cmap in all_maps:
-		print('Not a valid color map' )
-		return
-		
-	else:
-		col = cm.get_cmap(cmap, length + extendRangeWith)
-		if convert2hex:
-			return [rgb2hex(c) for c in col.colors]
-		else:
-			return colors
-
-
-
-xticks = np.arange(0,2,0.05)
-
-
-def extract_subplots_traces(figure, row, col):
-    # Stellen Sie sicher, dass es sich um eine make_subplots-Figur handelt
-    # if not isinstance(figure, plotly.subplots.make_subplots):
-    #     raise ValueError("Die Eingabe-Figur sollte mit make_subplots erstellt worden sein.")
-
-    # Überprüfen Sie, ob row und col innerhalb der zugewiesenen Subplots liegen
-    if row > figure.rows or col > figure.cols:
-        raise ValueError("Ungültige Zeilen- oder Spaltennummer.")
-
-    # Index des Subplots berechnen
-    subplot_index = (row - 1) * figure.cols + col
-
-    # Extrahieren Sie alle Traces aus dem gewünschten Subplot
-    subplot_traces = [trace for trace in figure.data if trace.xaxis == 'x{}'.format(subplot_index) and trace.yaxis == 'y{}'.format(subplot_index)]
-    subplot_layout = figure.layout
-
-    return subplot_traces, subplot_layout
-
-
 
 class plotly_layouts:
 
@@ -606,3 +483,126 @@ class plotly_layouts:
 			autosize=False, width=800, height=566, paper_bgcolor=self.paperbgcolor, plot_bgcolor=self.plotbgcolor,
 			margin = self.margin)
 		return layout_gamma
+
+
+def get_decimal_places(f:float):
+	return str(f)[::-1].find('.')
+
+def format_e(n):
+    a = '%E' % n
+    return a.split('E')[0].rstrip('0').rstrip('.') + 'E' + a.split('E')[1]
+
+def make_logtick_array(x0:float, x1:float, ticksbetween = 10, every_nth_val = 1):
+	mainTicks= np.logspace(x0, x1, abs(x0) + abs(x1) +1)
+	mainTicks = mainTicks[0::every_nth_val]
+	tickvalsDummy, tickvals, realText = [], [], []
+
+	for mT in mainTicks:
+		tickvalsDummy.append(np.arange(mT, mT * ticksbetween, (mT)).tolist())
+	tickvals = sum(tickvalsDummy, [])
+	tickText = [str("{:.0e}".format(float(val))) if val in mainTicks else '' for val in tickvals]	
+	for tick in tickText:
+		if not tick == '':
+			if not '00' in tick:
+				dummy = tick.split('1e')[-1].lstrip('+ |0').replace('-0', '-')
+				realText.append('10' + '<sup>' + dummy + '</sup>')
+				# realText.append('10' + '<sup>' + y.split('1e')[-1] + '</sup>')
+			else:
+				# one = '1'
+				one = '10<sup>0</sup>'
+				realText.append(one)
+		else:
+			realText.append('')
+	return tickvals, realText
+
+def print_colors_from_plotly_figure_traces(traces, return_color_line=False):
+    for i, prof in enumerate(traces):
+        color_marker_line = prof.marker.line.color
+        color_line = prof.line.color
+        name = prof.name
+        if not return_color_line:
+        	if not color_marker_line==None and not color_line == 'black' and not color_marker_line == 'black':
+        		print(color_marker_line,name)
+        	else:
+	        	print(color_line, name)
+
+
+def _anz_elems_per_col(anz_items, cols):
+    elems_per_col = anz_items // cols
+    elems_in_last_col = anz_items // cols + anz_items % cols
+    return elems_per_col, elems_in_last_col
+
+def col_row_list2(anz_items ,cols, rows, prepend_item=True):
+    elems_per_col, elems_in_last_col = _anz_elems_per_col(anz_items, cols)
+    items = np.repeat(rows, cols)
+    lst = []
+    for ind, item in enumerate(items):
+        lst_item = np.repeat(ind + 1, item).tolist()
+        lst.append(lst_item)
+    lst = sum(lst,[])
+    if not elems_per_col == elems_in_last_col:
+        if prepend_item:
+            lst.insert(0,1)
+        else:
+            lst.append(ind + 1)
+    return lst
+
+def col_row_list(anz_items ,cols, prepend_item=True):
+	elems_per_col, elems_in_last_col = _anz_elems_per_col(anz_items, cols)
+	rows = anz_items / cols
+	items = np.repeat(elems_per_col, cols)
+	lst = []
+	for ind, item in enumerate(items):
+	    lst_item = np.repeat(ind + 1, item).tolist()
+	    lst.append(lst_item)
+	lst = sum(lst,[])
+	if not elems_per_col == elems_in_last_col:
+	    if prepend_item:
+	    	to_prepend = np.repeat(1, elems_in_last_col - elems_per_col).tolist()
+	    	if len(to_prepend) > 1:
+	    		lst = [*to_prepend, *lst]
+	    	else:
+	    		lst.insert(0,*to_prepend)
+	    else:
+	    	to_append = np.repeat(ind + 1, elems_in_last_col - elems_per_col).tolist()
+	    	if len(to_append) > 1:
+	    		lst.extend(to_append)
+	    	else:
+	    		lst.append(ind + 1)
+	return lst
+
+def create_colormap(length:int, cmap:str, convert2hex = True, extendRangeWith = 0):
+	all_maps = list(cm._colormaps._cmaps.keys())
+	if not cmap in all_maps:
+		print('Not a valid color map' )
+		return
+		
+	else:
+		col = cm.get_cmap(cmap, length + extendRangeWith)
+		if convert2hex:
+			return [rgb2hex(c) for c in col.colors]
+		else:
+			return colors
+
+
+
+xticks = np.arange(0,2,0.05)
+
+
+def extract_subplots_traces(figure, row, col):
+    # Stellen Sie sicher, dass es sich um eine make_subplots-Figur handelt
+    # if not isinstance(figure, plotly.subplots.make_subplots):
+    #     raise ValueError("Die Eingabe-Figur sollte mit make_subplots erstellt worden sein.")
+
+    # Überprüfen Sie, ob row und col innerhalb der zugewiesenen Subplots liegen
+    if row > figure.rows or col > figure.cols:
+        raise ValueError("Ungültige Zeilen- oder Spaltennummer.")
+
+    # Index des Subplots berechnen
+    subplot_index = (row - 1) * figure.cols + col
+
+    # Extrahieren Sie alle Traces aus dem gewünschten Subplot
+    subplot_traces = [trace for trace in figure.data if trace.xaxis == 'x{}'.format(subplot_index) and trace.yaxis == 'y{}'.format(subplot_index)]
+    subplot_layout = figure.layout
+
+    return subplot_traces, subplot_layout
